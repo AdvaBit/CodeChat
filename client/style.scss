@@ -1,0 +1,81 @@
+* {
+  height: 99%;
+  width: 99%;
+}
+
+.messageBoard {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 90%;
+  margin: 1rem;
+
+  * {
+    height: initial;
+    width: initial;
+  }
+
+  header {
+    background-color: orange;
+    height: 8rem;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    h1 {
+      font-size: 60px;
+      margin: 0;
+    }
+
+    button {
+      background-color: mediumseagreen;
+      border: 1px solid mediumseagreen;
+      color: white;
+      font: 1.8rem bold;
+      position: absolute;
+      right: 0;
+      height: 100%;
+      overflow-wrap: normal;
+      width: 10rem;
+    }
+  }
+
+  main {
+    display: flex;
+    height: 100%;
+  }
+
+  nav {
+    background-color: lightseagreen;
+    height: 100%;
+    width: 15rem;
+    position: relative;
+
+    .favorites {
+      text-align: center;
+    }
+
+    button {
+      background-color: crimson;
+      border: 1px solid crimson;
+      color: whitesmoke;
+      font: 1.8rem bold;
+      position: absolute;
+      bottom: 0;
+      height: 3rem;
+      width: 100%;
+    }
+  }
+
+  section {
+    background-color: orchid;
+    height: 100%;
+    width: 100%;
+
+    .chatroomrows {
+      margin: 5px;
+      border: 1px solid black;
+    }
+  }
+}
