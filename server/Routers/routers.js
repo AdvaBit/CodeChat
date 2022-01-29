@@ -10,6 +10,7 @@ router.get('/login')
 
 // home page
  // getting list of all the existing chatrooms
+ 
  // section with favorited chatrooms
 router.get('/home',
     homeController.getChatrooms,
@@ -32,13 +33,15 @@ router.post('/newChat',
     
 // access chatroom 
 router.get('/chatroom',
-    homeController.openChat,
+    homeController.loadChat,
+    chatController.getChat,
     (req, res) => res.status(200).json(foo)
 )
 
-    // input password in locked chatroom
+// input password in locked chatroom
 router.get('/lockedChatroom', 
     homeController.lockedChat,
+    chatController.getChat,
     (req, res) => res.status(200).json(foo)
 )
 
@@ -51,12 +54,18 @@ router.get('/chatroom',
 )
 
 // go back to home page
-
+router.get('/loadHome', 
+    chatController.loadHome,
+    (req, res) => res.status(200).json(foo)
+)
 
 // add to favorites
-    
-    // sign out button
-    // implement emoji/gif and youtube api's here
+router.get('/addFavorites',
+    chatController.addFavorites,
+    (req, res) => res.status(200).json(foo)
+)
+
+// implement emoji/gif and youtube api's here
     
 
 module.exports = router;
