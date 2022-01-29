@@ -40,7 +40,7 @@ homeController.logOut = (req, res, next) => {
 }
 
 homeController.newChat = (req, res, next) => {
-    const chat = req.body
+    const chat = req.body[0]
     const sqlQuery = `\
     INSERT INTO chatrooms (title, author, password, authorized_users, messages)
     VALUES ('${chat.title}', '${chat.author}', ${chat.password}', '${chat.authorized_users}', '${chat.messages}');
@@ -76,7 +76,7 @@ homeController.loadChat = (req, res, next) => {
 homeController.lockedChat = (req, res, next) => {
      // get the chatid from the request
     const chatId = req.body.title;
-    
+
     // const sqlQuery;
    
     // prompt a password 
