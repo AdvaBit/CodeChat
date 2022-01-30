@@ -6,22 +6,20 @@ import MessageBoard from './containers/MessageBoard';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+constructor(props) {
+  super(props);
 
     this.state = {
       currentUser: '',
-      // token: '',
+      token: '',
       loggedIn: true,
     };
 
-    // const [token, setToken] = useState();
+    const [token, setToken] = useState();
     this.logIn = this.logIn.bind(this);
   }
   
-  componentDidMount() {
-    
-  }
+// }
 
   logIn() {
     this.setState({
