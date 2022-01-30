@@ -20,6 +20,7 @@ chatController.getChat = (req, res, next) => {
 
 // getFavorites
 chatController.getFavorites = (req, res, next) => {
+  const userId = req.body.userId
   const sqlQuery = `\
   SELECT u.favorites
   FROM userTable u\
