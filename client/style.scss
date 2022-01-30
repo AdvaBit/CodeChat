@@ -1,6 +1,11 @@
-* {
-  height: 99%;
+html {
+  height: 98%;
   width: 99%;
+}
+
+* {
+  height: 100%;
+  width: 100%;
 }
 
 .messageBoard {
@@ -13,6 +18,19 @@
   * {
     height: initial;
     width: initial;
+  }
+
+  #chatroomPassword {
+    background-color: lemonchiffon;
+    height: 8rem;
+    width: 18rem;
+    display: none;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
 
   header {
@@ -75,7 +93,22 @@
 
     .chatroomrows {
       margin: 5px;
+      padding-left: 10px;
       border: 1px solid black;
+      display: flex;
+      position: relative;
+
+      button {
+        // background-color: mediumseagreen;
+        // border: 1px solid mediumseagreen;
+        // color: white;
+        // font: 1.8rem bold;
+        position: absolute;
+        right: 0;
+        // height: 100%;
+        // overflow-wrap: normal;
+        // width: 10rem;
+      }
     }
   }
 }

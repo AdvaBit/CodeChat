@@ -3,6 +3,8 @@ import queryString from 'query-string';
 import io from "socket.io-client";
 
 import ChatRoomInfo from '../components/ChatRoomInfo';
+import Messages from '../components/messages/Messages';
+import Input from '../components/Input';
 
 const end_point = 'http://localhost:3000/';
 
@@ -47,6 +49,8 @@ const Chatroom = props => {
     <div className="chatroom">
       <div className='container'>
         <ChatRoomInfo room={room} />
+        <Messages messages={prevMessages} username={name} />
+        <Input setMessage={setMessage} sendMessage={sendMessage} message={message}/>
       </div>
     </div>
   );
