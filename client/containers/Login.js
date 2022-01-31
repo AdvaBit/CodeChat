@@ -1,8 +1,8 @@
-import React, { Component, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 async function loginUser(credentials) {
-  return fetch('http://localhost:8080/login', {
+  return fetch('/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -33,9 +33,9 @@ const Login = props => {
 
   return (
     <div className="logincontainer">
-      <h1>Please Log In via GitHub Authentcatioiut</h1>
+      <h1>Please Log In via GitHub Authentication</h1>
       {/* <button onClick={handleLogin}>Login</button> */}
-      <button onClick={() => props.handleClick()}>Login</button>
+      <button onClick={props.handleClick}>Login</button>
     </div>
   );
 }

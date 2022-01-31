@@ -1,9 +1,15 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const FavoriteElement = props => {
+
+  const navigate = useNavigate();
+  
   return(
     <div className='favorites'>
-      <h2>{props.chatroomName}'s Room</h2>
+      <h2 onClick={(e) => {
+        navigate(`/chatroom/${props.chatroomName}`);
+      }}>{props.chatroomName}'s Room</h2>
     </div>
   );
 };

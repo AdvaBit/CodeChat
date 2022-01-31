@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Fairy-Armadillo/CodeChat#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.12.3",
     "pg": "^8.7.1",
     "query-string": "^7.1.0",
@@ -28,6 +29,7 @@
     "react-dom": "^17.0.2",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
+    "socket.io": "^4.4.1",
     "socket.io-client": "^4.4.1"
   },
   "devDependencies": {
