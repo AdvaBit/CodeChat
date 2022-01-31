@@ -27,45 +27,6 @@ html {
     width: initial;
   }
 
-  #chatroomPassword, #addChatroom {
-    background-color: lemonchiffon;
-    height: 8rem;
-    width: 18rem;
-    display: none;
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-  }
-
-  #chatroomPassword {
-    height: 9rem;
-    width: 18rem;
-
-    input {
-      margin-bottom: 10px;
-    }
-
-    button {
-      margin: 0 10px;
-    }
-  }
-
-  #addChatroom {
-    height: 13rem;
-    width: 20rem;
-
-    div {
-      margin: 10px 0;
-    }
-
-    button {
-      margin: 0 10px;
-    }
-  }
-
   header {
     background-color: orange;
     height: 8rem;
@@ -142,6 +103,47 @@ html {
         // overflow-wrap: normal;
         // width: 10rem;
       }
+    }
+  }
+
+  .chatroomPassword, #addChatroom {
+    background-color: lemonchiffon;
+    height: 8rem;
+    width: 18rem;
+    display: none;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .chatroomPassword {
+    height: 9rem;
+    width: 18rem;
+
+    input {
+      margin-bottom: 10px;
+    }
+
+    .enterButton, .cancelButton {
+      margin: 0 10px;
+      position: initial;
+      right: initial;
+    }
+  }
+
+  #addChatroom {
+    height: 13rem;
+    width: 20rem;
+
+    div {
+      margin: 10px 0;
+    }
+
+    button {
+      margin: 0 10px;
     }
   }
 }
