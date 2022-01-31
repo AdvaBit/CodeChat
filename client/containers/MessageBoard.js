@@ -1,20 +1,16 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import ChatroomElement from '../components/ChatroomElement';
 import FavoriteElement from '../components/FavoriteElement';
 // import ChatroomPassword from '../components/ChatroomPassword';
 import AddChatroom from '../components/AddChatroom';
 
 const MessageBoard = props => {
-  // let example = ['Michael', 'Kai', 'Catilin', 'Charlie', 'David', 'Yuanji', 'Evan'];
-  // example = example.map((el, i) => <ChatroomElement key={i} chatroomName={el} />)
-  let example = [{name:'Michael', status:'Closed'}, {name:'Kai', status:'Closed'}, {name:'Catilin', status:'Open'}];
-  example = example.map((el, i) => <ChatroomElement key={i} i={i} chatroomName={el.name} status={el.status} />)
 
-  let favorites = ['C', 'D', 'Y', 'E'];
-  favorites = favorites.map((el, i) => <FavoriteElement key={i} i={i} chatroomName={el} />)
+  const chatrooms = props.chatrooms.map((el, i) => <ChatroomElement key={i} i={i} chatroomName={el.name} status={el.status} />)
+  const favorites = props.favorites.map((el, i) => <FavoriteElement key={i} i={i} chatroomName={el} />)
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className='messageBoard'>
@@ -34,7 +30,7 @@ const MessageBoard = props => {
         </nav>
         <section>
           This section will contain the various chatrooms.
-          {example}
+          {chatrooms}
         </section>
       </main>
     </div>

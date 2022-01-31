@@ -11,8 +11,11 @@ class App extends Component {
 
     this.state = {
       currentUser: '',
+      currentChatroom: '',
       token: '',
       loggedIn: false,
+      chatrooms: [{name:'Michael', status:'Closed'}, {name:'Kai', status:'Closed'}, {name:'Catilin', status:'Open'}],
+      favorites: ['C', 'D', 'Y', 'E'],
     };
 
     // const [token, setToken] = useState();
@@ -43,11 +46,10 @@ class App extends Component {
       <div id='container'>
         <Router>
           <Routes>
-            <Route exact path='/' element={<MessageBoard signout={this.signOut}/>} />
-            <Route path='/chatroom' element={<Chatroom />} />
+            <Route exact path='/' element={<MessageBoard signout={this.signOut} chatrooms={this.state.chatrooms} favorites={this.state.favorites}/>} />
+            <Route path='/chatroom' element={<Chatroom name={this.state.currentUser} room={this.state.currentChatroom} />} />
           </Routes>
         </Router>
-          
       </div>
     );
   }
