@@ -15,11 +15,9 @@ constructor(props) {
       loggedIn: true,
     };
 
-    const [token, setToken] = useState();
+    // const [token, setToken] = useState();
     this.logIn = this.logIn.bind(this);
   }
-  
-// }
 
   logIn() {
     this.setState({

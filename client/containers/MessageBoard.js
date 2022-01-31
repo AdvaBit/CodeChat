@@ -2,6 +2,7 @@ import React from 'react';
 import ChatroomElement from '../components/ChatroomElement';
 import FavoriteElement from '../components/FavoriteElement';
 import ChatroomPassword from '../components/ChatroomPassword';
+import AddChatroom from '../components/AddChatroom';
 
 const MessageBoard = props => {
   let example = ['Michael', 'Kai', 'Catilin', 'Charlie', 'David', 'Yuanji', 'Evan'];
@@ -13,9 +14,13 @@ const MessageBoard = props => {
   return (
     <div className='messageBoard'>
       <ChatroomPassword />
+      <AddChatroom />
       <header>
         <h1>CodeChat Chatrooms</h1>
-        <button>Create Chatroom</button>
+        <button onClick={(e) => {
+          e.preventDefault();
+          document.querySelector('#addChatroom').style.display='block';
+        }}>Create Chatroom</button>
       </header>
       <main>
         <nav>
