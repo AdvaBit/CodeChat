@@ -3,13 +3,14 @@ import React from 'react';
 const Message = props => {
   let isSentByCurrentUser = false;
   // props should have a message and username properties
-  const { message: { text, author }, username} = props;
+  const { msgReceived: { user, message }, username} = props;
+  const author = user;
   if (author === username) isSentByCurrentUser = true;
 
   if (isSentByCurrentUser) return (
     <div className='messageContainer justifyEnd backgroundBlue'>
       <div className='textContainer'>
-        <p>{text}</p>
+        <p>{message}</p>
       </div>
       <p className='sent'>{author}</p>
     </div>

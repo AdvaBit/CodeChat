@@ -33,9 +33,9 @@ const Login = props => {
 
   return (
     <div className="logincontainer">
-      <h1>Please Log In via GitHub Authentcatioiut</h1>
+      <h1>Please Log In via GitHub Authentication</h1>
       {/* <button onClick={handleLogin}>Login</button> */}
-      <button onClick={() => props.handleClick()}>Login</button>
+      <button onClick={props.handleClick}>Login</button>
     </div>
   );
 }

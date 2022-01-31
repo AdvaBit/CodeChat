@@ -20,8 +20,8 @@ const AddChatroom = props => {
         </select>
       </div>
       <div>
-        <label htmlFor='password'>Password: (if Closed) </label>
-        <input type='text' id='password' name='chatroomname' onChange={e => setPassword(e.target.value)}/>
+        <label htmlFor='newPassword'>Password: (if Closed) </label>
+        <input type='password' id='newPassword' name='newPassword' onChange={e => setPassword(e.target.value)}/>
       </div>
       <div>
         <button className='submitButton' onClick={(e) => {
@@ -32,6 +32,9 @@ const AddChatroom = props => {
         <button className='cancelButton' onClick={(e) => {
           e.preventDefault();
           document.querySelector('#addChatroom').style.display='none';
+          document.querySelector('#chatroomTitle').value='';
+          document.querySelector('#securityStatus').value='Open';
+          document.querySelector('#newPassword').value='';
         }}>Cancel</button>
       </div>
     </div>

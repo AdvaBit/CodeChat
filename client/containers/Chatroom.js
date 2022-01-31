@@ -13,36 +13,44 @@ let socket = io(end_point);
 const Chatroom = props => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
-  const [participant, setParticipants] = useState('');
+  const [participants, setParticipants] = useState('');
   const [message, setMessage] = useState('');
   const [prevMessages, setPrevMessages] = useState([]);
 
   useEffect(() => {
     // get room_id from props
-    const { room } = props;
+    // get name from props ?
+    const { name, room } = props;
     setRoom(room);
+    setName(name);
+
+    socket.emit('join', { name, room });
   });
 
 // --------------------------------------------------------------------
 
   useEffect(() => {
     // When a message is received from the server
-    socket.on('message', message => {
+    socket.on('message', ({ user, message }) => {
       // push the received message to prevMessages
-      setMessage(prevMessages => prevMessages.push(message));
+      const msgReceived = { user, message };
+      setMessage(prevMessages => [...prevMessages, msgReceived]);
     });
 
     // When roomInfo is received from the server
-    socket.on('roomInfo', ({ participants }) => {
-      setParticipants(participants);
+    socket.on('roomInfo', ({ room, users }) => {
+      setParticipants(users);
     });
   }, []);
 
-  const sendMessage = () => {
+  const sendMessage = (e) => {
+    e.preventDefault();
+
     if (message) {
-      socket.emit('sendMessage', message);
+      socket.emit('sendMessage', { name, message }, () => {
+        setMessage('');
+      });
     }
-    setMessage('');
   };
 
   return (

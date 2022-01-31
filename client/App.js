@@ -6,23 +6,31 @@ import MessageBoard from './containers/MessageBoard';
 
 
 class App extends Component {
-constructor(props) {
-  super(props);
+  constructor(props) {
+    super(props);
 
     this.state = {
       currentUser: '',
       token: '',
-      loggedIn: true,
+      loggedIn: false,
     };
 
     // const [token, setToken] = useState();
     this.logIn = this.logIn.bind(this);
+    this.signOut = this.signOut.bind(this);
   }
 
   logIn() {
     this.setState({
       ...this.state,
       loggedIn: true
+    })
+  }
+
+  signOut() {
+    this.setState({
+      ...this.state,
+      loggedIn: false
     })
   }
 
@@ -35,10 +43,8 @@ constructor(props) {
       <div id='container'>
         <Router>
           <Routes>
-            <Route exact path='/' element={<MessageBoard />} />
-            {/* <Route exact path='/' element={<Chatroom />} /> */}
-            {/* <Route path='/messageboard' element={<MessageBoard />} /> */}
-            {/* <Route path='/chatroom' element={<Chatroom />} /> */}
+            <Route exact path='/' element={<MessageBoard signout={this.signOut}/>} />
+            <Route path='/chatroom' element={<Chatroom />} />
           </Routes>
         </Router>
           
