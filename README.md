@@ -1,7 +1,7 @@
 # main
 
 Chatroom Table
-columns: [ Title, Author, Password, Authorized Users, Messages = [{user: message}, {user: message}, {user: message}] ]
+columns: [ Title, ID, Author, Password, Authorized Users, Time, Messages = [{user: message}, {user: message}, {user: message}] ]
 
 User Table (enforce unique usernames)
 columns: [ username, O-Auth token, favorite chatrooms = ID from Chatroom Table ]

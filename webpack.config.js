@@ -23,6 +23,8 @@ module.exports = {
     },
     proxy: {
       '/login': 'http://localhost:3000',
+      '/home': 'http://localhost:3000',
+      '/newChat': 'http://localhost:3000'
     },
     hot: true,
   },

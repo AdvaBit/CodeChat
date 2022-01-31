@@ -4,6 +4,33 @@ const AddChatroom = props => {
   const [title, setTitle] = useState();
   const [status, setStatus] = useState();
   const [password, setPassword] = useState();
+  const [titleError, setTitleError] = useState(null);
+  const [statusError, setStatusError] = useState(null);
+
+  const saveChatroom = () => {
+    if (title === ''){setTitleError('required')}
+    else if (status === 'Closed' && password === ''){setStatusError('required')}
+    else {
+      const body = {
+        title,
+        status,
+        password
+      };
+      console.log('this is the body', body)
+      fetch('/routers/newChat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'Application/JSON'
+        },
+        body: JSON.stringify(body)
+      })
+        .then(resp => resp.json())
+        .then(() => {
+          props.history.push('/home')
+        })
+        .catch(err => console.log('issue in AddChatroom frontend: ERROR', err))
+    }
+  }
   
   return(
     <div id='addChatroom'>
@@ -27,6 +54,7 @@ const AddChatroom = props => {
         <button className='submitButton' onClick={(e) => {
           e.preventDefault();
           console.log(title, status, password);
+          saveChatroom();
           document.querySelector('#addChatroom').style.display='none';
         }}>Submit</button>
         <button className='cancelButton' onClick={(e) => {
