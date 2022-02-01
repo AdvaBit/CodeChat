@@ -13,6 +13,12 @@ html {
     height: initial;
     width: initial;
   }
+
+  background-color: gray;
+  height: 60%;
+  width: 95%;
+  text-align: center;
+  padding-top: 25%;
 }
 
 .messageBoard {
@@ -28,7 +34,8 @@ html {
   }
 
   header {
-    background-color: orange;
+    background-color: #253237;
+    color: white;
     height: 8rem;
     padding-left: 20px;
     display: flex;
@@ -41,8 +48,8 @@ html {
     }
 
     button {
-      background-color: mediumseagreen;
-      border: 1px solid mediumseagreen;
+      background-color: #5C6B73;
+      border: 1px solid #5C6B73;
       color: white;
       font: 1.8rem bold;
       position: absolute;
@@ -59,18 +66,26 @@ html {
   }
 
   nav {
-    background-color: lightseagreen;
+    background-color: #9DB4C0;
+    color: white;
     height: 100%;
     width: 15rem;
     position: relative;
+
+    #favorites {
+      color: #253237;
+      font-size: 2rem;
+      text-align: center;
+      margin: 15px 0 0 0;
+    }
 
     .favorites {
       text-align: center;
     }
 
     button {
-      background-color: crimson;
-      border: 1px solid crimson;
+      background-color: #5C6B73;
+      border: 1px solid #5C6B73;
       color: whitesmoke;
       font: 1.8rem bold;
       position: absolute;
@@ -81,7 +96,7 @@ html {
   }
 
   section {
-    background-color: orchid;
+    background-color: #C2DFE3;
     height: 100%;
     width: 100%;
 
@@ -120,8 +135,10 @@ html {
   }
 
   .chatroomPassword {
-    height: 9rem;
+    height: 10rem;
     width: 18rem;
+    padding: 0 10px;
+
 
     input {
       margin-bottom: 10px;

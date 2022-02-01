@@ -1,0 +1,22 @@
+.messageContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 5%;
+  margin-top: 3px;
+}
+
+.messageText {
+  width: 100%;
+  letter-spacing: 0;
+  float: left;
+  font-size: 1.1em;
+  word-wrap: break-word;
+}
+
+.backgroundBlue {
+  color: rgb(63, 63, 221);
+}
+
+.backgroundWhite {
+  color: white;
+}

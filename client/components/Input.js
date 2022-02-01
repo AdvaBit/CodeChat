@@ -1,4 +1,5 @@
 import React from 'react';
+import './Input.css';
 
 const Input = props => {
   // props should have the following properties
