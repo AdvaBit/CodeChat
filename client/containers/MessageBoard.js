@@ -8,7 +8,7 @@ import AddChatroom from '../components/AddChatroom';
 const MessageBoard = props => {
 
   const chatrooms = props.chatrooms.map((el, i) => <ChatroomElement key={i} i={i} name={props.name} chatroomName={el.title} status={el.status} password={el.password}/>)
-  const favorites = props.favorites.map((el, i) => <FavoriteElement key={i} i={i} chatroomName={el} />)
+  const favorites = props.favorites.map((el, i) => <FavoriteElement key={i} i={i} name={props.name} chatroomName={el} />)
 
   // const navigate = useNavigate();
 
@@ -24,12 +24,11 @@ const MessageBoard = props => {
       </header>
       <main>
         <nav>
-          This is the side nav bar.
+          <h2 id='favorites'> Favorites </h2>
           {favorites}
           <button onClick={props.signout}>Sign Out</button>
         </nav>
         <section>
-          This section will contain the various chatrooms.
           {chatrooms}
         </section>
       </main>

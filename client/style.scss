@@ -15,6 +15,10 @@ html {
   }
 
   background-color: gray;
+  height: 60%;
+  width: 95%;
+  text-align: center;
+  padding-top: 25%;
 }
 
 .messageBoard {
@@ -68,13 +72,20 @@ html {
     width: 15rem;
     position: relative;
 
+    #favorites {
+      color: #253237;
+      font-size: 2rem;
+      text-align: center;
+      margin: 15px 0 0 0;
+    }
+
     .favorites {
       text-align: center;
     }
 
     button {
-      background-color: crimson;
-      border: 1px solid crimson;
+      background-color: #5C6B73;
+      border: 1px solid #5C6B73;
       color: whitesmoke;
       font: 1.8rem bold;
       position: absolute;
@@ -85,7 +96,7 @@ html {
   }
 
   section {
-    background-color: orchid;
+    background-color: #C2DFE3;
     height: 100%;
     width: 100%;
 

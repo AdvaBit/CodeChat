@@ -11,6 +11,9 @@ import Input from '../components/Input';
 const end_point = 'http://localhost:3000/';
 
 let socket = io(end_point, {
+  "force new connection" : true,
+  "reconnectionAttempts": "Infinity", 
+  "timeout" : 10000, 
   transports: ['polling', 'websocket'],
 });
 

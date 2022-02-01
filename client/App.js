@@ -15,7 +15,7 @@ class App extends Component {
       token: '',
       loggedIn: false,
       // chatrooms: [{title:'Michael', status:'Closed', password:''}, {title:'Kai', status:'Closed', password:''}, {title:'Catilin', status:'Open', password:''}],
-      favorites: ['C', 'D', 'Y', 'E'],
+      favorites: ['David', 'Yuanji', 'Evan', 'Charlie'],
     };
 
     // const [token, setToken] = useState();

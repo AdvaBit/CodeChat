@@ -26,4 +26,6 @@ input:focus, textarea:focus, select:focus{
   border: none;
   width: 20%;
   border-bottom-right-radius: 3px;
+  font-size: 30px;
+  font-weight: bold;
 }
