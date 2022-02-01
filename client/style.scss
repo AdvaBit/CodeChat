@@ -13,6 +13,8 @@ html {
     height: initial;
     width: initial;
   }
+
+  background-color: gray;
 }
 
 .messageBoard {
@@ -28,7 +30,8 @@ html {
   }
 
   header {
-    background-color: orange;
+    background-color: #253237;
+    color: white;
     height: 8rem;
     padding-left: 20px;
     display: flex;
@@ -41,8 +44,8 @@ html {
     }
 
     button {
-      background-color: mediumseagreen;
-      border: 1px solid mediumseagreen;
+      background-color: #5C6B73;
+      border: 1px solid #5C6B73;
       color: white;
       font: 1.8rem bold;
       position: absolute;
@@ -59,7 +62,8 @@ html {
   }
 
   nav {
-    background-color: lightseagreen;
+    background-color: #9DB4C0;
+    color: white;
     height: 100%;
     width: 15rem;
     position: relative;
@@ -120,8 +124,10 @@ html {
   }
 
   .chatroomPassword {
-    height: 9rem;
+    height: 10rem;
     width: 18rem;
+    padding: 0 10px;
+
 
     input {
       margin-bottom: 10px;

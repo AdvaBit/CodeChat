@@ -7,14 +7,14 @@ import AddChatroom from '../components/AddChatroom';
 
 const MessageBoard = props => {
 
-  const chatrooms = props.chatrooms.map((el, i) => <ChatroomElement key={i} i={i} chatroomName={el.name} status={el.status} />)
+  const chatrooms = props.chatrooms.map((el, i) => <ChatroomElement key={i} i={i} name={props.name} chatroomName={el.title} status={el.status} password={el.password}/>)
   const favorites = props.favorites.map((el, i) => <FavoriteElement key={i} i={i} chatroomName={el} />)
 
   // const navigate = useNavigate();
 
   return (
     <div className='messageBoard'>
-      <AddChatroom />
+      <AddChatroom refresh={props.refresh}/>
       <header>
         <h1>CodeChat Chatrooms</h1>
         <button onClick={(e) => {

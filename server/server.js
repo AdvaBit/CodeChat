@@ -20,12 +20,13 @@ app.use('/', routerPage)
 
 // -------------------------------------------------------------------------
 io.on('connect', socket => {
+  console.log('connected')
   // when the user enters the room
   socket.on('join', ({ name, room }) => {
     const { user } = addUser({ name, room });
 
-    socket.join(user.room);
-    socket.emit('message', { user: 'admin', message: `${user.name}, welcome to room ${user.room}!` });
+    // socket.join(user.room);
+    socket.to(user.room).emit('message', { user: 'admin', message: `${user.name}, welcome to room ${user.room}!` });
     socket.broadcast.emit('message', { user: 'admin', message: `${user.name} has joined the room!` });
     io.to(user.room).emit('roomInfo', { room: user.room, users: getUsers(users.room) });
   });
@@ -42,6 +43,10 @@ io.on('connect', socket => {
     io.to(user.room).emit('message', { user: 'admin', message: `${user.name} has left the room` });
     io.to(user.room).emit('roomInfo', { room: user.room, users: getUsers(user.room)});
   });
+});
+
+server.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}...`);
 });
 
 
@@ -63,6 +68,6 @@ app.use((err, req, res, next) => {
 })
 
 // listen to server
-app.listen(PORT, () => {
-    console.log(`Server listening on port: ${PORT}...`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server listening on port: ${PORT}...`);
+// });

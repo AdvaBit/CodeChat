@@ -1,6 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
-// import queryString from 'query-string';
+import { useLocation } from "react-router-dom";
+import queryString from 'query-string';
 import io from "socket.io-client";
+import './Chatroom.css';
 
 import ChatRoomInfo from '../components/ChatRoomInfo';
 import Messages from '../components/messages/Messages';
@@ -8,7 +10,9 @@ import Input from '../components/Input';
 
 const end_point = 'http://localhost:3000/';
 
-let socket = io(end_point);
+let socket = io(end_point, {
+  transports: ['polling', 'websocket'],
+});
 
 const Chatroom = props => {
   const [name, setName] = useState('');
@@ -17,15 +21,20 @@ const Chatroom = props => {
   const [message, setMessage] = useState('');
   const [prevMessages, setPrevMessages] = useState([]);
 
+  const { state } = useLocation();
+
   useEffect(() => {
     // get room_id from props
     // get name from props ?
-    const { name, room } = props;
+    console.log(state);
+    const { name, room } = state;
     setRoom(room);
     setName(name);
 
-    socket.emit('join', { name, room });
-  });
+    socket.emit('join', { name, room }, (error) => {
+      if (error) alert(error);
+    });
+  }, [state]);
 
 // --------------------------------------------------------------------
 

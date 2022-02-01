@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const AddChatroom = props => {
   const [title, setTitle] = useState();
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState('open');
   const [password, setPassword] = useState();
   const [titleError, setTitleError] = useState(null);
   const [statusError, setStatusError] = useState(null);
+
+  const navigate = useNavigate();
 
   const saveChatroom = () => {
     if (title === ''){setTitleError('required')}
@@ -17,17 +20,14 @@ const AddChatroom = props => {
         password
       };
       console.log('this is the body', body)
-      fetch('/routers/newChat', {
+      fetch('/newChat', {
         method: 'POST',
         headers: {
-          'Content-Type': 'Application/JSON'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(body)
       })
-        .then(resp => resp.json())
-        .then(() => {
-          props.history.push('/home')
-        })
+        .then(resp => props.refresh())
         .catch(err => console.log('issue in AddChatroom frontend: ERROR', err))
     }
   }
@@ -42,8 +42,8 @@ const AddChatroom = props => {
       <div>
         <label htmlFor='securityStatus'>Security Status: </label>
         <select name='securityStatus' id='securityStatus' onChange={e => setStatus(e.target.value)}>
-          <option value='Open'>Open</option>
-          <option value='Closed'>Closed</option>
+          <option value='open'>Open</option>
+          <option value='closed'>Closed</option>
         </select>
       </div>
       <div>
@@ -53,7 +53,7 @@ const AddChatroom = props => {
       <div>
         <button className='submitButton' onClick={(e) => {
           e.preventDefault();
-          console.log(title, status, password);
+          // console.log(title, status, password);
           saveChatroom();
           document.querySelector('#addChatroom').style.display='none';
         }}>Submit</button>

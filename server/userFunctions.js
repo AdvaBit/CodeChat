@@ -14,8 +14,8 @@ const addUser = ({ name, room }) => {
   return { user };
 }
 
-// remove a user by name (or id, if any)
-const removeUser = (name) => {
+// remove a user by name
+const removeUser = name => {
   // locate the user in data base
   const index = users.findIndex(user => user.name = name);
   // if located, delete user
@@ -23,7 +23,7 @@ const removeUser = (name) => {
 }
 
 
-// get the user by name (or id, if any)
+// get the user by name
 const getUser = name => users.find(user => user.name === name);
 
 // get all users in the current chatroom

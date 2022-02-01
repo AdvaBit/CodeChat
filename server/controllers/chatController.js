@@ -14,7 +14,18 @@ chatController.postMsg = (req, res, next) => {
         .then(data => res.locals.chat = data.rows)
         .then(data => next())
         .catch((err) => {next('issues with loadChat middleware: ', err)})
+}
 
+
+// userEnters
+chatController.userIn = (req, res, next) => {
+
+
+}
+
+
+// userLeaves
+chatController.userOut = (req, res, next) => {
 
 
 }
