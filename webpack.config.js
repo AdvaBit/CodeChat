@@ -22,7 +22,9 @@ module.exports = {
       directory: path.resolve(__dirname, 'dist'),
     },
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/login': 'http://localhost:3000',
+      '/home': 'http://localhost:3000',
+      '/newChat': 'http://localhost:3000'
     },
     hot: true,
   },
@@ -49,6 +51,14 @@ module.exports = {
           "sass-loader",
         ],
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ]
+  },
+  resolve: {
+    // Enable importing JS / JSX files without specifying their extension
+    extensions: ['.js', '.jsx'],
   },
 };

@@ -1,0 +1,166 @@
+html {
+  height: 98%;
+  width: 99%;
+}
+
+* {
+  height: 100%;
+  width: 100%;
+}
+
+.logincontainer {
+  * {
+    height: initial;
+    width: initial;
+  }
+
+  background-color: gray;
+  height: 60%;
+  width: 95%;
+  text-align: center;
+  padding-top: 25%;
+}
+
+.messageBoard {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 90%;
+  margin: 1rem;
+
+  * {
+    height: initial;
+    width: initial;
+  }
+
+  header {
+    background-color: #253237;
+    color: white;
+    height: 8rem;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    h1 {
+      font-size: 60px;
+      margin: 0;
+    }
+
+    button {
+      background-color: #5C6B73;
+      border: 1px solid #5C6B73;
+      color: white;
+      font: 1.8rem bold;
+      position: absolute;
+      right: 0;
+      height: 100%;
+      overflow-wrap: normal;
+      width: 10rem;
+    }
+  }
+
+  main {
+    display: flex;
+    height: 100%;
+  }
+
+  nav {
+    background-color: #9DB4C0;
+    color: white;
+    height: 100%;
+    width: 15rem;
+    position: relative;
+
+    #favorites {
+      color: #253237;
+      font-size: 2rem;
+      text-align: center;
+      margin: 15px 0 0 0;
+    }
+
+    .favorites {
+      text-align: center;
+    }
+
+    button {
+      background-color: #5C6B73;
+      border: 1px solid #5C6B73;
+      color: whitesmoke;
+      font: 1.8rem bold;
+      position: absolute;
+      bottom: 0;
+      height: 3rem;
+      width: 100%;
+    }
+  }
+
+  section {
+    background-color: #C2DFE3;
+    height: 100%;
+    width: 100%;
+
+    .chatroomrows {
+      margin: 5px;
+      padding-left: 10px;
+      border: 1px solid black;
+      display: flex;
+      position: relative;
+
+      button {
+        // background-color: mediumseagreen;
+        // border: 1px solid mediumseagreen;
+        // color: white;
+        // font: 1.8rem bold;
+        position: absolute;
+        right: 0;
+        // height: 100%;
+        // overflow-wrap: normal;
+        // width: 10rem;
+      }
+    }
+  }
+
+  .chatroomPassword, #addChatroom {
+    background-color: lemonchiffon;
+    height: 8rem;
+    width: 18rem;
+    display: none;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .chatroomPassword {
+    height: 10rem;
+    width: 18rem;
+    padding: 0 10px;
+
+
+    input {
+      margin-bottom: 10px;
+    }
+
+    .enterButton, .cancelButton {
+      margin: 0 10px;
+      position: initial;
+      right: initial;
+    }
+  }
+
+  #addChatroom {
+    height: 13rem;
+    width: 20rem;
+
+    div {
+      margin: 10px 0;
+    }
+
+    button {
+      margin: 0 10px;
+    }
+  }
+}
