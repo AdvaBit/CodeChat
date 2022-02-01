@@ -1,0 +1,33 @@
+.chatroom {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F7F7F7;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #FFFFFF;
+  border-radius: 8px;
+  height: 80%;
+  width: 80%;
+  border: 5px solid black;
+}
+
+.infoBar h4 {
+  font-size: 70px;
+  color: green;
+  margin: 10px 0 0 20px;
+}
+
+.infoBar {
+  border-bottom: 5px solid black;
+  height: 9rem;
+}
+
+.messagesContainer {
+  border-bottom: 5px solid black;
+}
