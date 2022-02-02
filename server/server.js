@@ -52,26 +52,30 @@ app.use((err, req, res, next) => {
 io.on('connection', socket => {
   console.log('IO connected')
   // when the user enters the room
+
   socket.on('join', ({ name, room }) => {
     const { user } = addUser({ name, room });
 
     // socket.join(user.room);
-    socket.to(user.room).emit('message', { user: 'admin', message: `${user.name}, welcome to room ${user.room}!` });
-    socket.broadcast.emit('message', { user: 'admin', message: `${user.nme} has joined the room!` });
-    io.to(user.room).emit('roomInfo', { room: user.room, users: getUsers(users.room) });
+    // socket.to(user.room).emit('message', { user: 'admin', message: `${user.name}, welcome to room ${user.room}!` });
+    // socket.broadcast.emit('message', { user: 'admin', message: `${user.nme} has joined the room!` });
+    // io.to(user.room).emit('roomInfo', { room: user.room, users: getUsers(users.room) });
   });
 
   // when the user send a message
   socket.on('sendMessage', ({ name, message }) => {
-    const user = getUser(name);
-    io.to(user.room).emit('message', { user: user.name, message: message });
+    // console.log(name);
+    // console.log(message);
+    // const user = getUser(name);
+    io.emit('ping', `${message} from server`);
+    // io.to(user.room).emit('message', { user: user.name, message: message });
   });
 
   // when the user leave the room
   socket.on('disconnect', name => {
-    const user = removeUser(name);
-    io.to(user.room).emit('message', { user: 'admin', message: `${user.name} has left the room` });
-    io.to(user.room).emit('roomInfo', { room: user.room, users: getUsers(user.room)});
+    // const user = removeUser(name);
+    // io.to(user.room).emit('message', { user: 'admin', message: `${user.name} has left the room` });
+    // io.to(user.room).emit('roomInfo', { room: user.room, users: getUsers(user.room)});
   });
 });
 

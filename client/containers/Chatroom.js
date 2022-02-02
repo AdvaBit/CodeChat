@@ -10,12 +10,14 @@ import Input from '../components/Input';
 
 const end_point = 'http://localhost:3000/';
 
-let socket = io(end_point, {
-  "force new connection" : true,
-  "reconnectionAttempts": "Infinity", 
-  "timeout" : 10000, 
-  transports: ['polling', 'websocket'],
-});
+
+const socket = io();
+// let socket = io(end_point, {
+//   "force new connection" : true,
+//   "reconnectionAttempts": "Infinity", 
+//   "timeout" : 10000, 
+//   transports: ['polling', 'websocket'],
+// });
 
 const Chatroom = props => {
   const [name, setName] = useState('');
@@ -25,6 +27,13 @@ const Chatroom = props => {
   const [prevMessages, setPrevMessages] = useState([]);
 
   const { state } = useLocation();
+
+  useEffect(() =>{
+    console.log(socket.connected);
+    socket.on('ping', msg => {
+      console.log('from websocket: ' + msg);
+    })
+  })
 
   useEffect(() => {
     // get room_id from props
@@ -57,7 +66,7 @@ const Chatroom = props => {
 
   const sendMessage = (e) => {
     e.preventDefault();
-
+    console.log('message sent from client side');
     if (message) {
       socket.emit('sendMessage', { name, message }, () => {
         setMessage('');

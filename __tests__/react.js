@@ -21,9 +21,6 @@ describe('Unit testing React components', ()=>{
 
     })
 
-    
-
-
 })
 
 // Messageboard, chatroomelement, favoriteelement, addchatroom
